@@ -492,10 +492,22 @@ section { position: relative; scroll-margin-top: 68px; }
 /* fade-on-theme change */
 body { transition: background .4s var(--ease), color .4s var(--ease); }
 
+.kicker-mobile { display: none; }
+
 /* ============================================================
    MOBILE — responsive fixes
    ============================================================ */
 @media (max-width: 1280px) {
+  /* Hero: kicker nad zdjęciem, zdjęcie bez paska */
+  .hero-text .kicker { display: none; }
+  .kicker-mobile { display: inline-flex; }
+  .hero-media { display: flex !important; flex-direction: column; gap: 16px; }
+  .photo-card .bar { display: none; }
+  .photo-card { border: none; background: transparent; box-shadow: none; border-radius: 0; }
+  .photo-frame { border-radius: var(--r); aspect-ratio: 4 / 3; }
+  .photo-frame img { object-position: center 8%; }
+  .photo-frame::after { background: linear-gradient(to top, var(--bg) 0%, transparent 50%); }
+
   /* About: stack do jednej kolumny */
   .about-grid { grid-template-columns: 1fr !important; }
   .about-body p { font-size: 16px; }
