@@ -1,8 +1,18 @@
+import { useEffect } from 'react';
 import { PORTFOLIO } from '../data/content';
 import { CodeIcon } from '../icons';
 
 export default function Projects({ lang }) {
   const t = (key) => PORTFOLIO.ui[lang][key] || key;
+
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach(e => e.target.classList.toggle('bar-active', e.isIntersecting)),
+      { threshold: 0.35 }
+    );
+    document.querySelectorAll('.project').forEach(c => io.observe(c));
+    return () => io.disconnect();
+  }, []);
 
   return (
     <section className="projects" id="projects">

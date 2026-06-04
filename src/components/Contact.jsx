@@ -10,7 +10,7 @@ export default function Contact({ lang }) {
       <div className="contact-glow" />
       <div className="wrap">
         <div className="contact-inner">
-          <span className="section-label" style={{ justifyContent: 'center' }}>
+          <span className="section-label">
             {t('label_contact')}
           </span>
           <h2>{t('contact_heading')}</h2>
